@@ -1,0 +1,4 @@
+django
+psycopg2
+python-dateutil
+social-auth-app-django

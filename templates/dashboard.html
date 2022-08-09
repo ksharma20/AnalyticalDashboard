@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+
+{% block styles %}
+
+{% endblock styles %}
+
+
+{% block body %}
+<nav>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" id="navBar" role="tablist">
+        <li class="nav-item">
+            <a href="#tab1Id" class="nav-link active" data-bs-toggle="tab">Analytics</a>
+        </li>
+    </ul>
+</nav>
+
+
+{% if showChart %}
+<div class=" vh-100 container justify-content-center align-items-center align-content-center">
+    <div id="chart" style="width:auto; height:70%;"></div>
+    <div class="m-5 justify-content-center">
+        <a href="/">Go Back to Get different Data</a>
+    </div>
+</div>
+
+<script>
+
+    chatData = {{ showChart | safe }};
+    // create a data set on our data
+    var dataSet = anychart.data.set(chatData);
+
+    // create a line chart
+    var chart = anychart.line();
+
+    // map data for the first series,
+    // take x from the zero column and value from the first column
+    var firstSeriesData = dataSet.mapAs({ x: 0, value: 1 });
+
+    // map data for the second series,
+    // take x from the zero column and value from the second column
+    var secondSeriesData = dataSet.mapAs({ x: 0, value: 2 });
+
+    // map data for the third series,
+    // take x from the zero column and value from the third column
+    var thirdSeriesData = dataSet.mapAs({ x: 0, value: 3 });
+
+    // create the first series with the mapped data
+    var firstSeries = chart.line(firstSeriesData);
+    firstSeries.name('Daily active users');
+
+    // create the second series with the mapped data
+    var secondSeries = chart.line(secondSeriesData);
+    secondSeries.name('Installs');
+
+    // create the third series with the mapped data
+    var thirdSeries = chart.line(thirdSeriesData);
+    thirdSeries.name('Revenue');
+
+    // configure the chart title text settings
+    chart.title('Date Wise Metrics of {{appName}}');
+
+    // set the y axis title
+    chart.yAxis().title('No of __ in k (i.e, 1,000)');
+
+    chart.legend().enabled(true);
+
+    // turn on the crosshair
+    chart.crosshair().enabled(true).yLabel(false).yStroke(null);
+
+    // set the container id for the line chart
+    chart.container('chart');
+
+    // draw the line chart
+    chart.draw();
+
+</script>
+
+{% else %}
+
+<div class="container-fluid">
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-row align-items-center m-5">
+                <div class="input-group dropdown">
+                    <select name="appName" class="form-control dropdown">
+                        <option selected>Select App Name</option>
+                        {% if appNames %}
+                        {% for appName in appNames %}
+                        <option value="{{appName}}">{{appName}}</option>
+                        {% endfor %}
+                        {% endif %}
+                        <!-- <option value="2">Two</option>
+                        <option value="3">Three</option> -->
+                    </select>
+                </div>
+            </div>
+            <div class="DatePickers">
+                <div class="form-row align-items-center m-5">
+                    <div class="input-group date">
+                        <input name="sdate" type="date" class="form-control date-withicon"
+                            placeholder="Select Start Date" />
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row align-items-center m-5">
+                    <div class="input-group date">
+                        <input name="edate" type="date" class="form-control date-withicon"
+                            placeholder="Select End Date" />
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="offset-sm-4 col-sm-8">
+                    <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock body %}
