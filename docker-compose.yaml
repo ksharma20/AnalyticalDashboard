@@ -1,17 +1,17 @@
 version: '3'
 services:
   db:
-    image: postgres
+    image: postgres:bullseye
     environment:
-      - POSTGRES_DB=analyticsDashb
+      - POSTGRES_DB=AnalyticsDash
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=pass
     ports:
       - "5432:5432"
   web:
-    build: .
+    image: ksharma20/django:analyticsdashboard
     ports:
-      - "8080:80"
-    command: "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:80"
+      - "8000:80"
+    command: "python manage.py runserver 0.0.0.0:80"
     depends_on:
       - db

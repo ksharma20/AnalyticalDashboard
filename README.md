@@ -62,3 +62,17 @@ X-axis = Dates, Y-axis = Numbers in k's (1000), 3 Lines for installs, revenue & 
 
 https://user-images.githubusercontent.com/72795959/183731037-0c2c072b-add9-470d-af56-81f03334e73d.mp4
 
+### How to Run
+
+#### Using Docker Compose :
+Download [docker-compose.yaml](docker-compose.yaml) and RUN
+```sh
+docker-compose up
+```
+
+#### Using Python :
+Clone whole repo and RUN
+```sh
+python manage.py runserver
+```
+in Root directory of the project

@@ -80,8 +80,8 @@ WSGI_APPLICATION = 'analyticsDashb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'analyticsdashb',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'AnalyticsDash',
         'USER': 'admin',
         'PASSWORD': 'pass',
         'HOST': 'db',

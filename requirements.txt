@@ -1,4 +1,6 @@
 django
 psycopg2
+sqlparse
+psycopg2-binary
 python-dateutil
 social-auth-app-django
