@@ -31,7 +31,8 @@ to May 30, 2022))
 - Deployment - Dockerize the application and deploy it in aws or heroku web server
 - Scheduling - Cron Job or celery
 
-## Solution
+
+# Solution
 
 ### Tech Stack Used:
 - UI - Html, css, bootstrap, javascript
