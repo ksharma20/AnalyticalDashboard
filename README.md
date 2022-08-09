@@ -30,3 +30,34 @@ to May 30, 2022))
 - Backend - Django, Postgresql for database ( Mongodb if possible ), google sign in api
 - Deployment - Dockerize the application and deploy it in aws or heroku web server
 - Scheduling - Cron Job or celery
+
+## Solution
+
+### Tech Stack Used:
+- UI - Html, css, bootstrap, javascript
+- Analytics chart View - anychartJS
+- Backend - Django, Postgresql for database, google sign in api
+- Deployment - Dockerize the application and deployed it on Docker HUB.
+
+### Login Page:
+![image](https://user-images.githubusercontent.com/72795959/183726963-225eb813-af81-4b8f-9163-1fad18167c51.png)
+
+Simple Button in Center to login with Google
+
+### Home Page/ Dashboard
+![image](https://user-images.githubusercontent.com/72795959/183727226-7bb9d5a4-0a58-4600-b1de-991bf58a2b20.png)
+
+Simple Home Page with Analytics Tab on top Left.
+And A Simple web form at center to select appName & Range
+![image](https://user-images.githubusercontent.com/72795959/183727555-9edbf144-8298-4f75-85db-6fbe02e0127b.png)
+
+### Dashboard Chart view
+![image](https://user-images.githubusercontent.com/72795959/183727734-0ef5aecd-6caf-4af9-8d7f-41cd047d37b6.png)
+
+Simple Chart with crosshair (using anychartJS).
+X-axis = Dates, Y-axis = Numbers in k's (1000), 3 Lines for installs, revenue & Daily active users
+
+### Video Overview
+
+https://user-images.githubusercontent.com/72795959/183731037-0c2c072b-add9-470d-af56-81f03334e73d.mp4
+
